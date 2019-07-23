@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+	<script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+	<h2 class="utilizadores"><a id="utilizadores"></a></h2>
+	<hr>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+	
+	
+	$(function () {
+		var socket = io();
+		var nUtilizador;
+		var contarTotal = 0;
+		
+		socket.on('contar', function(contar) {
+			contarTotal = contar; 
+			$('#utilizadores').text("Utilizador: " + nUtilizador + "/" + contarTotal);
+		});
+		
+		socket.on('jogador', function(jogador){
+			if (nUtilizador == null) {
+				nUtilizador = jogador;
+				console.log(nUtilizador + " " + contarTotal);
+			}
+			$('#utilizadores').text("Utilizador: " + nUtilizador + "/" + contarTotal);
+		});
+	});
+	
+	</script>
+  </body>
+</html>
