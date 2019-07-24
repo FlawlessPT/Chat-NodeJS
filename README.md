@@ -1,3 +1,2 @@
 # Chat-NodeJS-
-#
-# Chat desenvolvido por João Sousa e Rafael Mendes
+Multi-user online chat using NodeJS
